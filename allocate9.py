@@ -102,18 +102,21 @@ def ford_fulkerson(graph, source, sink):
 
 
 
-pref = [[0,0,1],
-        [0,1,0],
+pref = [[1,1,1],
         [1,0,0],
         [1,1,1],
-        [1,1,1],]
+        [1,1,1],
+        [1,1,1],
+        [1,1,1],
+        [1,1,1]
+        ]
         
 
 officer_per = [[1,1,1],
-                [1,0,0] ]
+                [1,2,0] ]
                
 
 
-a = allocate(pref, officer_per, 0, 25)
+a = allocate(pref, officer_per, 0, 26)
 for i in a:
     print(i)
