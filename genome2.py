@@ -110,7 +110,7 @@ class OrfFinder:
 	"""
         start_ar = self.find_alg(self.tree, start, 0)
         end_ar = self.find_alg(self.evilTree, end[::-1], 0)
-        print(start_ar, end_ar)
+
         if len(end_ar) == 0 or len(start_ar) == 0:
             return []
         final_list = []
