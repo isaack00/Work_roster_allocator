@@ -110,7 +110,7 @@ class OrfFinder:
 	"""
         start_ar = self.find_alg(self.tree, start, 0)
         end_ar = self.find_alg(self.evilTree, end[::-1], 0)
-
+        count = 0
         if len(end_ar) == 0 or len(start_ar) == 0:
             return []
         final_list = []
@@ -118,14 +118,24 @@ class OrfFinder:
             if len(self.genome) - start_ar[i] > end_ar[1]:
                 break
             for j in range(1, len(end_ar)):
-                if len(self.genome) - start_ar[i] > end_ar[j]:
-                    break
-
+                
                 if (len(self.genome)) - (start_ar[i]) <= end_ar[j]:
                     word = ""
                     for k in range(len(self.genome) - start_ar[i] - len(start), end_ar[j] + len(end)):
+                        
+                        count = count +1
                         word += self.genome[k]
                     final_list.append(word)
+                else:
+                    break
+                if j != len(end_ar) - 1:
+                    if (len(self.genome)) - (start_ar[i]) > end_ar[j + 1]:
+                        break
+            if i != len(start_ar) - 1:
+
+                if (len(self.genome) - (start_ar[i + 1])) > end_ar[1]:
+                    break
+                    
             
                 
             
@@ -171,9 +181,6 @@ class OrfFinder:
         
 
 
+genome = OrfFinder('AAABBAAABBAAA')
+assert sorted(genome.find('AA', 'AB')) == sorted(['AAABBAAAB', 'AAAB', 'AABBAAAB', 'AAAB'])
 
-
-a = OrfFinder("ABAABCBA")
-print(a.find('A', 'BA')) 
-print(a.find('A', 'A'))  
-print(a.find('A', 'B'))   

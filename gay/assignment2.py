@@ -403,6 +403,3 @@ class OrfFinder:
         else:
             return self.find_alg(tree[char], start, i+1)
         
-result = allocate([[1,1,0], [1,1,0], [0,0,1], [1,1,1], [1,0,0], [0,1,0], [1,0,1]], [[1,1,1], [1,2,0]], 25,26)
-for i in result:
-    print(i)
